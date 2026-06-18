@@ -24,6 +24,9 @@ import {
 } from "./components/Icons";
 import Header from "./components/Header";
 
+// Prefix for static assets so they resolve under the GitHub Pages base path.
+const ASSET = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 const Logo = ({ light = true }: { light?: boolean }) => (
   <div className="logo">
     <span className="logo-mark">
@@ -153,7 +156,7 @@ export default function Home() {
       {/* ===== HERO ===== */}
       <section className="hero">
         <div className="hero-bg">
-          <img src="/assets/hero.png" alt="Engine and transmission" />
+          <img src={`${ASSET}/assets/hero.png`} alt="Engine and transmission" />
         </div>
         <div className="hero-stripe" />
         <div className="container">
@@ -248,7 +251,7 @@ export default function Home() {
             {products.map((p) => (
               <div className="product-card" key={p.title}>
                 <div className="product-img">
-                  <img src={p.img} alt={p.title} />
+                  <img src={`${ASSET}${p.img}`} alt={p.title} />
                 </div>
                 <div className="product-body">
                   <h4>{p.title}</h4>
@@ -366,7 +369,7 @@ export default function Home() {
         <div className="container">
           <div className="cta-grid">
             <div className="cta-engine">
-              <img src="/assets/cta-engine.svg" alt="Engine" />
+              <img src={`${ASSET}/assets/cta-engine.svg`} alt="Engine" />
             </div>
             <div className="cta-left">
               <h2>
