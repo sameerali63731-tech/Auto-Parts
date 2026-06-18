@@ -1,8 +1,11 @@
 /** @type {import('next').NextConfig} */
 
-// On GitHub Pages the site is served from https://<user>.github.io/Auto-Parts/
-// so a base path is required in production. Local dev stays at "/".
-const basePath = process.env.NODE_ENV === "production" ? "/Auto-Parts" : "";
+// GitHub Pages serves the site from a subpath (/Auto-Parts) and so needs a
+// basePath. Vercel (and local dev) serve from the root, so no basePath there.
+// Vercel sets VERCEL=1 during its builds, which we use to detect it.
+const isVercel = !!process.env.VERCEL;
+const isProd = process.env.NODE_ENV === "production";
+const basePath = isProd && !isVercel ? "/Auto-Parts" : "";
 
 const nextConfig = {
   output: "export", // emit a static site into ./out
