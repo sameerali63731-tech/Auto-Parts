@@ -1101,7 +1101,7 @@ img {
   }
 
   .hero-card {
-          margin-right: 63px;
+    margin-right: 63px;
     width: 100%;
     max-width: 360px;
     margin-top: 36px;
@@ -1160,6 +1160,8 @@ img {
 
 /* Tablet portrait — switch to mobile nav */
 @media (max-width: 860px) {
+
+
 
   .nav,
   .header-phone {
@@ -1293,5 +1295,12 @@ img {
 
   .cta-left h2 {
     font-size: 23px;
+  }
+}
+
+@media (max-width: 426px) {
+  .hero-card {
+    display: none;
+
   }
 }
